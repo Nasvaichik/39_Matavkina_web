@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СУПЕР НОСКИ С АВТОПОИСКОМ ПАРЫ</title>
+    <link rel="stylesheet" href="./css/reset.css"> 
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-theme {
+            background: #333;
+            color: #bdbdbd;
+        }
+
+        body.dark-theme header,
+        body.dark-theme footer {
+            background: #222;
+        }
+
+        body.dark-theme .reason,
+        body.dark-theme .review {
+            background: #9f9f9f;
+            color: #c6c6c6;
+        }
+
+        body.dark-theme .ad {
+            background: #555;
+        }
+
+        header {
+            text-align: center;
+            background: #ff5733;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        #theme-toggle {
+            padding: 10px 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #theme-toggle:hover {
+            background: #2ecc71;
+        }
+
+        .product-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ffa502;
+            border-radius: 10px;
+        }
+
+        .top-reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .reason {
+            background: #ffe066;
+            padding: 15px;
+            border: 2px solid #ffa502;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .slogans {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .slogans h2 {
+            font-size: 1.5rem;
+            color: #27ae60;
+        }
+
+        .reviews {
+            margin: 20px 0;
+        }
+
+        .review {
+            background: #dff9fb;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        blockquote {
+            margin: 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        blockquote footer {
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .ads {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .ad {
+            flex: 1 1 calc(50% - 10px);
+            background: #ff6b81;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        .ad img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #ff5733;
+            color: white;
+        }
+
+        #review-form {
+            margin-bottom: 20px;
+        }
+
+        #review-form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #review-form input,
+        #review-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #review-form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #review-form button:hover {
+            background: #2ecc71;
+        }
+
+        #sort-buttons {
+            margin-bottom: 20px;
+        }
+
+        #sort-buttons button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #sort-buttons button:hover {
+            background: #2980b9;
+        }
+
+        #filter-name {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .ad {
+                flex: 1 1 100%;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .slogans h2, .slogans h3 {
+                font-size: 1.2rem;
+            }
+
+            .reason, .review {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>СУПЕР НОСКИ С АВТОПОИСКОМ ПАРЫ!</h1>
+        <p>Никогда больше не трать время на поиски своей второй половинки!</p>
+        <button id="theme-toggle">Тёмная тема</button>
+    </header>
+
+    <main>
+        <section class="product-image">
+            <h2>Фотография наших супер носков</h2>
+            <img src="images/super-socks.jpg" alt="Супер Носки с Автопоиском Пары">
+        </section>
+        <section class="top-reasons">
+            <h2>Почему выбирают наши носки?</h2>
+            <div class="reason">1. Экономьте время на сборы!</div>
+            <div class="reason">2. Устали терять носки? Теперь это в прошлом!</div>
+            <div class="reason">3. Подходит для всей семьи!</div>
+            <div class="reason">4. Умный дизайн и яркие цвета!</div>
+            <div class="reason">5. Сокращают количество разводов!</div>
+        </section>
+        <section class="slogans">
+            <h2>Наши слоганы</h2>
+            <h3>"Начальник больше не верит в твои носочные оправдания?"</h3>
+            <h3>"Купи умные носки и придумай новые!"</h3>
+        </section>
+        <article class="reviews">
+            <h2>Отзывы наших клиентов</h2>
+            <form id="review-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" required>
+                
+                <label for="text">Текст отзыва:</label>
+                <textarea id="text" required></textarea>
+                
+                <label for="rating">Оценка (1-5):</label>
+                <input type="number" id="rating" min="1" max="5" required>
+                
+                <label for="image">Изображение (URL):</label>
+                <input type="url" id="image">
+                
+                <button type="submit">Добавить отзыв</button>
+            </form>
+            <div id="sort-buttons">
+                <button id="sort-asc">Сортировать по возрастанию оценки</button>
+                <button id="sort-desc">Сортировать по убыванию оценки</button>
+            </div>
+            <label for="filter-name">Фильтр по имени:</label>
+            <input type="text" id="filter-name">
+            <button id="filter-button">Применить фильтр</button>
+            <div id="reviews-list">
+                <!-- Отзывы будут добавляться сюда -->
+            </div>
+        </article>
+        <aside class="ads">
+            <h2>Рекламные предложения</h2>
+            <div class="ad">
+                Супер скидки на тапочки! Нужно лишь... Читать далее...
+                <img src="images/slippers.jpg" alt="Реклама тапочек">
+            </div>
+            <div class="ad">
+                Купи носки – получи щётку для обуви бесплатно! Ещё...
+                <img src="images/brush.jpg" alt="Реклама щётки для обуви">
+            </div>
+            <div class="ad">
+                Ваша реклама могла бы быть здесь! Всего два простых шага...
+                <img src="images/ad-placeholder.jpg" alt="Пустая реклама">
+            </div>
+            <div class="ad">
+                Вечно ищешь второй носок? Купи уже умные носки! Узнать больше...
+                <img src="images/super-socks.jpg" alt="Реклама умных носков">
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 Супер Носки. Все права защищены.
+    </footer>
+    <script src="cookie.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
