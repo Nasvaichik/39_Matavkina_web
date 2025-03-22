@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личная карточка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button onclick="toggleEditAll()">Редактировать все</button>
+        <button onclick="saveAll()" style="display: none;">Сохранить все</button>
+        <button onclick="addBlock('text', 'Новый текстовый блок')">Добавить текст</button>
+        <button onclick="addBlock('image', 'https://via.placeholder.com/150')">Добавить изображение</button>
+        <button onclick="addBlock('list', ['Новый пункт 1', 'Новый пункт 2'])">Добавить список</button>
+    </header>
+    <div id="content"></div>
+    <script src="script.js"></script>
+</body>
+</html>
