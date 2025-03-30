@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личная карточка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="api-nav">
+            <button onclick="loadLocalBlocks()">Локальные блоки</button>
+            <button onclick="loadCatFacts()">Факты о котах</button>
+            <button onclick="loadJokes()">Шутки</button>
+        </nav>
+        <div class="edit-controls">
+            <button onclick="toggleEditAll()">Редактировать все</button>
+            <button onclick="saveAll()" style="display: none;">Сохранить все</button>
+            <button onclick="addBlock('text', 'Новый текстовый блок')">Добавить текст</button>
+            <button onclick="addBlock('image', 'https://via.placeholder.com/150')">Добавить изображение</button>
+            <button onclick="addBlock('list', ['Новый пункт 1', 'Новый пункт 2'])">Добавить список</button>
+        </div>
+    </header>
+
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Загрузка данных...</p>
+    </div>
+
+    <div id="content" class="content"></div>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Ошибка</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
