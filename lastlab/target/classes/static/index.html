@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Управление продуктами</title> 
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .product-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .product-list {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .product-actions button {
+            width: auto;
+            margin-left: 5px;
+        }
+        .edit-btn {
+            background-color: #f39c12;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Управление продуктами</h1>
+    
+    <div class="product-form">
+        <h2>Добавить новый продукт</h2>
+        <input type="text" id="productName" placeholder="Название продукта">
+        <input type="number" id="productPrice" placeholder="Цена" step="0.01">
+        <button onclick="addProduct()">Добавить продукт</button>
+    </div>
+    
+    <div class="product-list">
+        <h2>Список продуктов</h2>
+        <div id="productsContainer"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>    

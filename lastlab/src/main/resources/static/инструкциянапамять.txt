@@ -1,0 +1,8 @@
+1. запуск ProductController
+2. переход в браузере по адресу http://localhost:8080
+3. бэкенд http://localhost:8080/api/products
+4. если нужно через командную строку повершел:
+curl -Uri http://localhost:8080/api/products `
+-Method POST `
+-Headers @{"Content-Type"="application/json"} `
+-Body '{"name":"Samsung S24U","price":100000}'
